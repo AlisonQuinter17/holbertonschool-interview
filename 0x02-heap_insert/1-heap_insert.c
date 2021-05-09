@@ -31,7 +31,7 @@ heap_t *heap_insert(heap_t **root, int value)
  * @value: Value to store in the node to be inserted.
  * Return: A pointer to the inserted node, or NULL on failure.
  */
-heap_t *max_heap_ordering(heap_t *tree, int value, int index, size_t total_nodes)
+heap_t *max_heap_ordering(heap_t *tree, int value, size_t index, size_t total_nodes)
 {
     heap_t *left_branch, *right_branch;
 
@@ -46,7 +46,7 @@ heap_t *max_heap_ordering(heap_t *tree, int value, int index, size_t total_nodes
     {
         left_branch = max_heap_ordering(tree->left, value, index * 2, total_nodes);
         right_branch = max_heap_ordering(tree->right, value, index * 2 + 1, total_nodes);
-        return (left_branch ? left_branch : right_branch); 
+        return (left_branch ? left_branch : right_branch);
     }
 }
 
