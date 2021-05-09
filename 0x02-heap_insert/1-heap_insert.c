@@ -46,12 +46,9 @@ heap_t *level_insert(heap_t *tree, int val, size_t index, size_t total_nodes)
 			(tree->right = binary_tree_node(tree, val)) :
 			(tree->left = binary_tree_node(tree, val)));
 	}
-	else
-	{
-		left_branch = level_insert(tree->left, val, index * 2, total_nodes);
-		right_branch = level_insert(tree->right, val, index * 2 + 1, total_nodes);
-		return (left_branch ? left_branch : right_branch);
-	}
+	left_branch = level_insert(tree->left, val, index * 2, total_nodes);
+	right_branch = level_insert(tree->right, val, index * 2 + 1, total_nodes);
+	return (left_branch ? left_branch : right_branch);
 }
 
 /**
