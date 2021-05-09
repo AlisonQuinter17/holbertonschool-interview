@@ -20,8 +20,7 @@ heap_t *heap_insert(heap_t **root, int value)
 	{
 		return (*root = new_node);
 	}
-	new_node = max_heap_ordering(*root, value, 1,
-				     binary_tree_size(*root) + 1);
+	new_node = insert_by_level(*root, value, 1, binary_tree_size(*root) + 1);
 	return (max_heap(new_node));
 }
 
@@ -47,8 +46,8 @@ heap_t *insert_by_level(heap_t *tree, int value, size_t index, size_t total_node
 	}
 	else
 	{
-		left_branch = max_heap_ordering(tree->left, value, index * 2, total_nodes);
-		right_branch = max_heap_ordering(tree->right, value, index * 2 + 1, total_nodes);
+		left_branch = insert_by_level(tree->left, value, index * 2, total_nodes);
+		right_branch = insert_by_level(tree->right, value, index * 2 + 1, total_nodes);
 		return (left_branch ? left_branch : right_branch);
 	}
 }
