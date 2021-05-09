@@ -22,7 +22,7 @@ static void _binary_tree_delete(binary_tree_t *tree)
  */
 int main(void)
 {
-    heap_t *root;
+	heap_t *root;
     heap_t *node;
 
     root = NULL;
