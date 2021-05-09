@@ -20,20 +20,20 @@ heap_t *heap_insert(heap_t **root, int value)
 	{
 		return (*root = new_node);
 	}
-	new_node = insert_by_level(*root, value, 1, binary_tree_size(*root) + 1);
+	new_node = level_insert(*root, value, 1, binary_tree_size(*root) + 1);
 	return (max_heap(new_node));
 }
 
 /**
- * insert_by_level - Insert node by sort level.
+ * level_insert - Insert node by sort level.
  *
  * @tree: Pointer to the parent node of the tree.
- * @value: Value to store in the node to be inserted.
+ * @val: Value to store in the node to be inserted.
  * @index: Node index.
  * @total_nodes: Total number of nodes in the tree.
  * Return: A pointer to the node inserted.
  */
-heap_t *insert_by_level(heap_t *tree, int value, size_t index, size_t total_nodes)
+heap_t *level_insert(heap_t *tree, int val, size_t index, size_t total_nodes)
 {
 	heap_t *left_branch, *right_branch;
 
@@ -42,12 +42,14 @@ heap_t *insert_by_level(heap_t *tree, int value, size_t index, size_t total_node
 
 	if ((total_nodes / 2) == index)
 	{
-		return ((total_nodes % 2) == 0 ? (tree->left = binary_tree_node(tree, value)) : (tree->right = binary_tree_node(tree, value)));
+		return ((total_nodes % 2) == 0 ?
+			(tree->left = binary_tree_node(tree, val)) :
+			(tree->right = binary_tree_node(tree, val)));
 	}
 	else
 	{
-		left_branch = insert_by_level(tree->left, value, index * 2, total_nodes);
-		right_branch = insert_by_level(tree->right, value, index * 2 + 1, total_nodes);
+		left_branch = level_insert(tree->left, val, index * 2, total_nodes);
+		right_branch = level_insert(tree->right, val, index * 2 + 1, total_nodes);
 		return (left_branch ? left_branch : right_branch);
 	}
 }
@@ -65,7 +67,8 @@ size_t binary_tree_size(const binary_tree_t *root)
 	if (!root)
 		return (0);
 
-	return ((left_size = binary_tree_size(root->left)) + (right_size = binary_tree_size(root->right)) + 1);
+	return ((left_size = binary_tree_size(root->left)) +
+		(right_size = binary_tree_size(root->right)) + 1);
 }
 
 /**
