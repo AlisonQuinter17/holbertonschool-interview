@@ -42,9 +42,9 @@ heap_t *level_insert(heap_t *tree, int val, size_t index, size_t total_nodes)
 
 	if ((total_nodes / 2) == index)
 	{
-		return ((total_nodes % 2) == 0 ?
-			(tree->left = binary_tree_node(tree, val)) :
-			(tree->right = binary_tree_node(tree, val)));
+		return ((total_nodes % 2) ?
+			(tree->right = binary_tree_node(tree, val)) :
+			(tree->left = binary_tree_node(tree, val)));
 	}
 	else
 	{
