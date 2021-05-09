@@ -33,7 +33,7 @@ heap_t *heap_insert(heap_t **root, int value)
  * @total_nodes: Total number of nodes in the tree.
  * Return: A pointer to the node inserted.
  */
-heap_t *level_insert(heap_t *tree, int val, size_t index, size_t total_nodes)
+heap_t *level_insert(binary_tree_t *tree, int val, size_t index, size_t total_nodes)
 {
 	heap_t *left_branch, *right_branch;
 
