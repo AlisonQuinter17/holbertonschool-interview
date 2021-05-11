@@ -24,6 +24,11 @@ H => **Copy All** => **Paste** => HH => **Paste** =>HHH => **Copy All** => **Pas
 Number of operations: **7**
 <hr>
 
+**n** = 0
+
+Number of operations: **0**
+<hr>
+
 **n** = -3
 
 Number of operations: **0**
