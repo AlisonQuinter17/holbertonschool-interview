@@ -22,3 +22,13 @@ Number of operations: **4**
 H => **Copy All** => **Paste** => HH => **Paste** =>HHH => **Copy All** => **Paste** => HHHHHH => **Copy All** => **Paste** => HHHHHHHHHHHH
 
 Number of operations: **7**
+<hr>
+
+**n** = -3
+
+Number of operations: **0**
+<hr>
+
+**n** = "Holacarebola"
+
+Number of operations: **0**
