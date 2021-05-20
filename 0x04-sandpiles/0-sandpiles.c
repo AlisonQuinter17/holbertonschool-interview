@@ -1,15 +1,15 @@
 #include "sandpiles.h"
 
 /**
- * sandpiles_sum - Computes the sum of two sandpiles.
+ * sandpiles_sum - Stablish the sandpile result of a sum of two sandpiles.
  *
- * @grid1: Sandpile Stable.
- * @grid2: Sandpile Stable.
+ * @grid1: First Sandpile.
+ * @grid2: Second Sandpile.
  * Return: Nothing.
  */
 void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 {
-	int n = 0, i, j, l_grid[3][3] = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}};
+	int n = 0, i, j, l_grid[3][3];
 
 	for (i = 0; i < 3; i++)
 	{
