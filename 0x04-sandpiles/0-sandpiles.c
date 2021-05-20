@@ -13,18 +13,20 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 
 	printf("=\n");
 	for (i = 0; i < 3; i++)
+	{
 		for (j = 0; j < 3; j++)
 		{
 			a_grid[i][j] = grid1[i][j] + grid2[i][j];
 			if (a_grid[i][j] > 3)
 				n++;
 		}
-
+	}
 	while (n != 0)
 	{
 		print_grid(a_grid);
 		printf("=\n");
 		for (i = 0; i < 3; i++)
+		{
 			for (j = 0; j < 3; j++)
 			{
 				if (l_grid[i][j] >= 4)
@@ -36,14 +38,17 @@ void sandpiles_sum(int grid1[3][3], int grid2[3][3])
 					(j + 1) <= 2 ? a_grid[i][j + 1] += 1 : 0;
 				}
 			}
+		}
 		n = 0;
 		for (i = 0; i < 3; i++)
+		{
 			for (j = 0; j < 3; j++)
 			{
 				l_grid[i][j] = a_grid[i][j];
 				if (a_grid[i][j] > 3)
 					n++;
 			}
+		}
 	}
 	print_grid(a_grid);
 }
