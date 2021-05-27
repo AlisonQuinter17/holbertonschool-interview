@@ -10,22 +10,14 @@ int is_palindrome(listint_t **head)
 	listint_t *aux = *head;
 	int len = 0;
 
-	if (*head == NULL)
-		return (1);
-
 	while (aux->next)
 	{
 		aux = aux->next;
 		len++;
 	}
 
-	if ((*head)->n == aux->n)
-	{
-		(*head) = (*head)->next;
-		return (recursive((*head), len - 2));
-	}
-	else
-		return (0);
+	(*head) = (*head)->next;
+	return (recursive((*head), len - 2));
 }
 
 /**
