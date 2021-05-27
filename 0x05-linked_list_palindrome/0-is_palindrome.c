@@ -10,6 +10,9 @@ int is_palindrome(listint_t **head)
 	listint_t *aux = *head;
 	int len = 0;
 
+	if (*head == NULL)
+		return (1);
+
 	while (aux->next)
 	{
 		aux = aux->next;
