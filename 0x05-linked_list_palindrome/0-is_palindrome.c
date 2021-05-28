@@ -7,46 +7,17 @@
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *aux = *head;
-	int len = 0;
-
-	if (*head == NULL)
-		return (1);
-
-	while (aux->next)
-	{
-		aux = aux->next;
-		len++;
-	}
-
-	(*head) = (*head)->next;
-	return (recursive((*head), len - 2));
+	return (detection(*head, head));
 }
 
 /**
- * recursive - Compare the start to end of the new list.
- * @head: Pointer to the head of the list.
- * @len: New lenght of the list.
+ * detection - Detect if a list is palindrome.
+ * @head: Pointer to the head node of the list, far left.
+ * @aux: Double pointer to copy of head, far right.
  * Return: 0 if it is not a palindrome, 1 if it is a palindrome.
  */
-int recursive(listint_t *head, int len)
+int detection(listint_t *head, listint_t **aux)
 {
-	listint_t *aux = head;
-	int i = 0;
-
-	if (len < 2)
-		return (1);
-
-	while (i < len)
-	{
-		aux = aux->next;
-		i++;
-	}
-	if (head->n == aux->n)
-	{
-		head = head->next;
-		return (recursive(head, len - 2));
-	}
-	else
-		return (0);
+	return ((!head) || (detection(head->next, aux) && head->n == (*aux)->n ?
+			    ((*aux) = (*aux)->next), 1 : 0));
 }
