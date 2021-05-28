@@ -1,6 +1,6 @@
 ## Linked_list_palindrome
 
-#### More detail
+#### More detail of the 0-is_palindrome.c file solution
 
     int is_palindrome(listint_t **head)  
     {
