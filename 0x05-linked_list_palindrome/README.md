@@ -1,12 +1,21 @@
 ## Linked_list_palindrome
 
-int r, c;
+#### More detail
+
+    int is_palindrome(listint_t **head)  
+    {
+    		return (detection(head, *head));  
+    }
+
+    int detection(listint_t **head, listint_t *aux)  
+    {  
+    		int left, right;
     
-    if (!head)
-		return (1);
-		
-    r = recursive(head->next, aux) ? 1 : 0;
-		
-	c = ((head->n == (*aux)->n ? ((*aux) = (*aux)->next), 1 : 0));
-		
-	return (r && c ? 1 : 0);
+    		if (!aux)  
+    			return (1);
+    	
+    		right = detection(head, aux->next) ? 1 : 0;  
+    		left = ((*head)->n == aux->n ? ((*head) = (*head)->next), 1 : 0);
+    	
+    		return (left && right ? 1 : 0);  
+    }
