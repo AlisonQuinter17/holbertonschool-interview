@@ -16,12 +16,11 @@ if __name__ == "__main__":
     try:
         for line in sys.stdin:
             tokens = line.split(" ")
-            if len(tokens) > 2:
-                total_size += int(tokens[-1])
-                code = int(tokens[-2])
+            total_size += int(tokens[-1])
+            code = int(tokens[-2])
 
-                if code in status_codes:
-                    status_codes[code] += 1
+            if code in status_codes:
+                status_codes[code] += 1
             if count % 10 == 0:
                 print_statistics()
             count += 1 
