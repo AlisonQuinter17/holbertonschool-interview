@@ -7,11 +7,11 @@ if __name__ == "__main__":
     count = 1
     codes = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
 
-    def print_stats():
+    def print_statistics():
         print("File size: {}".format(total_size))
-        for key in sorted(codes.keys()):
-            if codes[key]:
-                print("{}: {}".format(key, codes[key]))
+        for key, value in sorted(codes):
+            if (value):
+                print("{}: {}".format(key, value))
 
     try:
         for line in sys.stdin:
@@ -22,9 +22,9 @@ if __name__ == "__main__":
             if code in codes:
                 codes[code] += 1
             if count % 10 == 0:
-                print_stats()
-                count += 1
+                print_statistics()
+            count += 1
     except Exception:
         pass
     finally:
-        print_stats()
+        print_statistics()
