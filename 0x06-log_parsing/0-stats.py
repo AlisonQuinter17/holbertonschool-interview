@@ -9,22 +9,23 @@ if __name__ == "__main__":
 
     def print_stats():
         '''Prints accumulated statistics.'''
-        print("File size: {}".format(size[0]))
+        print("File size: {}".format(size))
         for key in sorted(codes.keys()):
             if codes[key]:
                 print("{}: {}".format(key, codes[key]))
+
     try:
         for line in sys.stdin:
-            try:
-                tokens = line.split(" ")
-                size += int(tokens[-1])
-                code = int(tokens[-2])
-                if code in codes:
-                    codes[code] += 1
-            except:
-                pass
+            tokens = line.split(" ")
+            size += int(tokens[-1])
+            code = int(tokens[-2])
+
+            if code in codes:
+                codes[code] += 1
+
             if i % 10 == 0:
                 print_stats()
+
             i += 1
     except KeyboardInterrupt:
         print_stats()
