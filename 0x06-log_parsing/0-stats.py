@@ -23,7 +23,5 @@ if __name__ == "__main__":
             if count % 10 == 0:
                 print_stats()
             count += 1
-    except Exception:
-        pass
-    finally:
+    except KeyboardInterrupt:
         print_stats()
