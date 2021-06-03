@@ -23,7 +23,7 @@ if __name__ == "__main__":
                 status_codes[code] += 1
             if count % 10 == 0:
                 print_statistics()
-            count += 1 
+            count += 1
     except Exception:
         pass
     finally:
