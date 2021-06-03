@@ -18,11 +18,12 @@ if __name__ == "__main__":
             tokens = line.split(" ")
             total_size += int(tokens[-1])
             code = int(tokens[-2])
+
             if code in codes:
                 codes[code] += 1
             if count % 10 == 0:
                 print_stats()
-            count += 1
+                count += 1
     except Exception:
         pass
     finally:
