@@ -24,4 +24,6 @@ if __name__ == "__main__":
                 print_stats()
             count += 1
     except Exception:
+        pass
+    finally:
         print_stats()
