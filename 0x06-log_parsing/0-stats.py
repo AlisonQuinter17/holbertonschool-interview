@@ -21,7 +21,7 @@ if __name__ == "__main__":
     def print_statistics():
         ''' Print Statistics. '''
         print("File size: {}".format(total_size[0]))
-        for value in sorted(status_codes.keys):
+        for value in sorted(status_codes.keys()):
             if (status_codes[value]):
                 print("{}: {}".format(value, status_codes[value]))
 
@@ -36,4 +36,3 @@ if __name__ == "__main__":
         print_statistics()
         raise
     print_statistics()
-
