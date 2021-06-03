@@ -9,7 +9,7 @@ if __name__ == "__main__":
 
     def print_statistics():
         print("File size: {}".format(total_size))
-        for key, value in sorted(codes):
+        for key, value in sorted(codes.items()):
             if (value):
                 print("{}: {}".format(key, value))
 
