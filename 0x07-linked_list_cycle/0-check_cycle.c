@@ -9,10 +9,10 @@ int check_cycle(listint_t *list)
 {
 	listint_t *hare = list, *turtle = list;
 
-	if (!list)
+	if (list == NULL)
 		return (0);
 
-	while (hare && turtle)
+	while (hare && turtle && hare->next)
 	{
 		turtle = turtle->next;
 		hare = hare->next->next;
