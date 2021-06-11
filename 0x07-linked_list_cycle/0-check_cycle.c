@@ -9,16 +9,16 @@ int check_cycle(listint_t *list)
 {
 	listint_t *hare = list, *turtle = list;
 
-	if (list)
-	{
-		while (hare && turtle)
-		{
-			turtle = turtle->next;
-			hare = hare->next->next;
+	if (!list)
+		return (0);
 
-			if (turtle == hare)
-				return (1);
-		}
+	while (hare && turtle)
+	{
+		turtle = turtle->next;
+		hare = hare->next->next;
+
+		if (turtle == hare)
+			return (1);
 	}
 	return (0);
 }
